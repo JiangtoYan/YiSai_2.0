@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+    defaultConfig {
+        applicationId "com.jy.yisai_20"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    dependencies {
+        compile fileTree(include: ['*.jar'], dir: 'libs')
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        //compile 'com.android.support:appcompat-v7:24.2.1'
+        testCompile 'junit:junit:4.12'
+        compile project(':firelibrary')
+        apt 'com.jakewharton:butterknife-compiler:8.4.0'
+        //百分比布局
+        compile 'com.zhy:percent-support-extends:1.1.1'
+        //友盟统计
+        compile 'com.umeng.analytics:analytics:latest.integration'
+        //腾讯Bugly
+        compile 'com.tencent.bugly:crashreport:latest.release'
+        //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+        compile 'com.tencent.bugly:nativecrashreport:latest.release'
+        //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+
+
+    }
+
+    //多渠道打包
+    productFlavors {
+
+        wandoujia {}
+        baidu {}
+        c360 {}
+        uc {}
+
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
+    }
+}

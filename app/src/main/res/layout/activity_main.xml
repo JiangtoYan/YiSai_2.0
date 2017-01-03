@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jy.yisai_20.HomeActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_occupy"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+        <RadioGroup
+            android:id="@+id/rg_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/shouye"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                />
+
+            <RadioButton
+                android:id="@+id/rb_competition"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/competition"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/rb_shoot"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/shoot"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/rb_discovery"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/discovery"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/rb_mine"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/mine"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"/>
+
+
+        </RadioGroup>
+</LinearLayout>
